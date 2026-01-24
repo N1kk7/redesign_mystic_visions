@@ -1,6 +1,7 @@
 <template>
   <section ref="section" class="parallax">
     <div ref="bg" class="parallax__bg"></div>
+    <div class="parallax_overlay"></div>
     <div class="parallax_text">
       <p>
         People who read this aren't looking for permission. They prefer a clear
@@ -108,6 +109,16 @@ onUnmounted(() => {
         align-items: center;
         overflow: hidden;
 
+        &_overlay {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background: rgba(0, 0, 0, 0.45);
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
         &__bg {
             // position: absolute;
             // inset: -50%;
@@ -140,6 +151,24 @@ onUnmounted(() => {
             align-items: flex-start;
             max-width: 70%;
             gap: 40px;
+            z-index: 1;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            line-height: 150%;
+            text-align: baseline;
+
+            @media screen and (max-width: 768px) {
+              font-size: 1.5rem;
+            }
+
+            @media screen and (max-width: 480px) {
+              font-size: 1.35rem;
+            }
+            @media screen and (max-width: 375px) {
+              font-size: 1.25rem;
+            }
+            
         }
     }
 </style>

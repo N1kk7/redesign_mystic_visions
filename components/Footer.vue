@@ -75,24 +75,6 @@
             </div>
           </div> -->
 
-          <div class="links">
-            <div class="link">
-
-            </div>
-            <div class="link">
-
-            </div>
-            <div class="link">
-
-            </div>
-            <div class="link">
-
-            </div>
-            <div class="link">
-
-            </div>
-          </div>
-
           <div class="text">
             A framework for evaluating environments and tradeoffs.
           </div>
@@ -240,25 +222,6 @@
       align-items: center;
       padding-block: 25px;
       gap: 20px;
-
-      .links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-
-
-        .link {
-          background: lightgrey;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
-      }
 
     }
 
