@@ -32,7 +32,7 @@
 import { ref, onMounted, onBeforeUpdate, nextTick } from "vue";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,7 +122,7 @@ onMounted(async () => {
 <!-- <script setup>
 import { onMounted, ref, nextTick } from "vue";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -266,7 +266,7 @@ onMounted(async () => {
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
