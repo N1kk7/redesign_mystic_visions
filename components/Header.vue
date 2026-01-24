@@ -54,7 +54,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: fit-content;
+  height: auto;
   color: black;
   background-color: white;
   transition: all ease 0.3s;
