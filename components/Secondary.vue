@@ -152,16 +152,16 @@ onMounted(async () => {
         }
 
         @media screen and (max-width: 768px) {
-            padding-block: 90px;
-        }
+    padding-block: 80px;
+  }
 
-        @media screen and (max-width: 425px) {
-            padding-block: 75px;
-        }
+  @media screen and (max-width: 425px) {
+    padding-block: 70px;
+  }
 
-        @media screen and (max-width: 375px) {
-            padding-block: 60px;
-        }
+  @media screen and (max-width: 375px) {
+    padding-block: 60px;
+  }
  
 }
 </style>

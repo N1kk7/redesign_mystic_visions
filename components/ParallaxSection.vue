@@ -120,15 +120,6 @@ onUnmounted(() => {
         }
 
         &__bg {
-            // position: absolute;
-            // inset: -50%;
-            // background-image: url("@/public/images/parallax_bg.webp");
-            // background-size: cover;
-            // background-position: center;
-            // background-repeat: no-repeat;
-            // transform: translateY(var(--parallax-offset, 0));
-            // will-change: transform;
-            // z-index: 0;
 
             position: absolute;
             left: 0;
@@ -158,11 +149,17 @@ onUnmounted(() => {
             line-height: 150%;
             text-align: baseline;
 
+            @media screen and (max-width: 1024px) {
+              max-width: 80%;
+            }
+
             @media screen and (max-width: 768px) {
+              max-width: 90%;
               font-size: 1.5rem;
             }
 
             @media screen and (max-width: 480px) {
+              max-width: 95%;
               font-size: 1.35rem;
             }
             @media screen and (max-width: 375px) {

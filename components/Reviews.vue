@@ -1,184 +1,8 @@
-<!-- <template>
-  <section class="reviews" ref="reviewsRef">
-    <div class="container">
-      <div class="reviews_content">
-        <div
-          class="reviews_content_item"
-          v-for="(item, i) in reviewData"
-          :key="i"
-          :ref="setCardRef"
-        >
-          <div class="card_top">
-            <NuxtImg
-              class="reviews_content_item_avatar"
-              :src="item.avatar"
-              :alt="item.author"
-              width="50"
-              height="50"
-            />
-            <p v-html="item.text"></p>
-          </div>
-          <div class="card_bottom">
-            <strong>{{ item.author }}</strong>
-            <div class="card_position">{{ item.position }}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
 
-<!-- <script setup>
-import { ref, onMounted, onBeforeUpdate, nextTick } from "vue";
-
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const reviewsRef = ref(null);
-const titleRef = ref(null);
-const cardRefs = ref([]);
-
-const reviewData = [
-  {
-    avatar: "/images/liam_s.webp",
-    text: `"<strong>Before this, I had no clear structure.</strong> I knew I wanted to lower costs, work remotely, and change my living situation, but I didn't know how to organize those goals."`,
-    author: "Liam S.",
-    position: "Remote Software Engineer — United States",
-  },
-  {
-    avatar: "/images/sean_m.webp",
-    text: `"What stood out most was how my thinking changed. <strong>The ideas weren't abstract.</strong> They helped me see my situation more clearly and make better decisions."`,
-    author: "Sean M.",
-    position: "Independent Consultant — United States",
-  },
-  {
-    avatar: "/images/alexander_k.webp",
-    text: `"I didn't need more motivation. <strong>I needed to place my effort correctly.</strong> Once I understood that, my decisions became simpler and my actions more deliberate."`,
-    author: "Alexander K.",
-    position: "Product & Operations Manager — Germany",
-  },
-];
-
-const setCardRef = (el) => {
-  if (el) cardRefs.value.push(el);
-};
-
-onBeforeUpdate(() => {
-  cardRefs.value = [];
-});
-
-onMounted(async () => {
-
-  await nextTick();
-
-  const isDesktop = window.innerWidth >= 768;
-
-  gsap.from(titleRef.value, {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: titleRef.value,
-      start: "top 80%",
-      once: true,
-    },
-  });
-
-  if (isDesktop) {
-    gsap.from(cardRefs.value, {
-      y: 60,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.25,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: cardRefs.value[0],
-        start: "top 85%",
-        once: true,
-      },
-    });
-  } else {
-    cardRefs.value.forEach((el) => {
-      gsap.from(el, {
-        x: -50,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          once: true,
-        },
-      });
-    });
-  }
-});
-</script> -->
-
-
-<!-- <script setup>
-import { onMounted, ref, nextTick } from "vue";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const reviewData = [
-  {
-    avatar: "/images/liam_s.webp",
-    text: `"<strong>Before this, I had no clear structure.</strong> I knew I wanted to lower costs, work remotely, and change my living situation, but I didn't know how to organize those goals."`,
-    author: "Liam S.",
-    position: "Remote Software Engineer — United States",
-  },
-  {
-    avatar: "/images/sean_m.webp",
-    text: `"What stood out most was how my thinking changed. <strong>The ideas weren't abstract.</strong> They helped me see my situation more clearly and make better decisions."`,
-    author: "Sean M.",
-    position: "Independent Consultant — United States",
-  },
-  {
-    avatar: "/images/alexander_k.webp",
-    text: `"I didn't need more motivation. <strong>I needed to place my effort correctly.</strong> Once I understood that, my decisions became simpler and my actions more deliberate."`,
-    author: "Alexander K.",
-    position: "Product & Operations Manager — Germany",
-  },
-];
-
-const reviewsRef = ref(null);
-
-onMounted(async () => {
-  await nextTick();
-
-  const section = reviewsRef.value;
-  if (!section) return;
-
-  const cards = section.querySelectorAll(".reviews_content_item");
-
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-  })
-    .to(cards, {
-      y: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      stagger: 0.2,
-    });
-});
-</script> --> 
 <template>
   <section class="reviews" ref="reviewsRef">
     <div class="container">
       <div class="reviews_content">
-        <!-- Карточка 1 -->
         <div class="reviews_content_item" ref="card1">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
@@ -190,13 +14,6 @@ onMounted(async () => {
                     height="50"
                 />
             </div>
-            <!-- <NuxtImg
-              class="reviews_content_item_avatar"
-              src="/images/liam_s.webp"
-              alt="Liam S."
-              width="50"
-              height="50"
-            /> -->
             <p>
               "<strong>Before this, I had no clear structure.</strong> I knew I wanted to lower costs, work remotely, and change my living situation, but I didn't know how to organize those goals."
             </p>
@@ -207,7 +24,6 @@ onMounted(async () => {
           </div>
         </div>
 
-        <!-- Карточка 2 -->
         <div class="reviews_content_item" ref="card2">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
@@ -234,7 +50,6 @@ onMounted(async () => {
           </div>
         </div>
 
-        <!-- Карточка 3 -->
         <div class="reviews_content_item" ref="card3">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
@@ -280,13 +95,11 @@ onMounted(async () => {
 
   const cards = [card1.value, card2.value, card3.value];
 
-  // Сначала делаем все opacity 0 через CSS (или через JS)
   cards.forEach((card) => {
     card.style.opacity = 0;
     card.style.transform = "translateY(40px) scale(0.95)";
   });
 
-  // Ждём загрузки картинок
   const images = document.querySelectorAll(".reviews_content_item_avatar");
   await Promise.all(
     Array.from(images).map(
@@ -412,7 +225,7 @@ onMounted(async () => {
 
             p {
                 font-family: "Roboto", sans-serif;
-                font-size: 1rem;
+                font-size: 1.125rem;
                 line-height: 150%;
                 font-weight: 400;
                 font-style: normal;
@@ -428,7 +241,7 @@ onMounted(async () => {
 
             .card_author {
                  font-family: "Roboto", sans-serif;
-                font-size: 1rem;
+                font-size: 1.125rem;
                 line-height: 150%;
                 font-weight: 500;
                 font-style: normal;
@@ -436,7 +249,7 @@ onMounted(async () => {
 
             .card_position {
                  font-family: "Roboto", sans-serif;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 line-height: 150%;
                 font-weight: 400;
                 font-style: normal;
@@ -457,16 +270,16 @@ onMounted(async () => {
         }
 
         @media screen and (max-width: 768px) {
-            padding-block: 90px;
-        }
+    padding-block: 80px;
+  }
 
-        @media screen and (max-width: 425px) {
-            padding-block: 75px;
-        }
+  @media screen and (max-width: 425px) {
+    padding-block: 70px;
+  }
 
-        @media screen and (max-width: 375px) {
-            padding-block: 60px;
-        }
+  @media screen and (max-width: 375px) {
+    padding-block: 60px;
+  }
  
 
 

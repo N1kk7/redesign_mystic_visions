@@ -4,7 +4,7 @@
 
 
 :root {
-  --header-height: 85px;
+  --header-height: 90px;
 }
 
 @media screen and (max-width: 480px) {

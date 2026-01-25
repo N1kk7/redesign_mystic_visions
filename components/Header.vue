@@ -74,7 +74,7 @@ onUnmounted(() => {
   background-color: white;
   transition: all ease 0.3s;
   padding-block: 24px;
-
+  max-height: 90px;
   font-weight: 300;
   z-index: 15;
 
@@ -140,9 +140,11 @@ onUnmounted(() => {
   }
 
   @media screen and (max-width: 480px) {
+    max-height: 65px;
     padding-block: 16px;
   }
   @media screen and (max-width: 375px) {
+    max-height: 45px;
     padding-block: 12px;
   }
 

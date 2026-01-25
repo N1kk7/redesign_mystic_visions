@@ -223,15 +223,24 @@ onMounted(async () => {
     gap: 48px;
 
     h3 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 700;
       font-family: "Merriweather", sans-serif;
       font-style: normal;
       line-height: 150%;
 
       @media screen and (max-width: 768px) {
-        font-size: 2.25rem;
+        font-size: 1.875rem;
         line-height: 130%;
+      }
+
+      @media screen and (max-width: 480px) {
+        font-size: 1.6rem;
+      }
+
+      @media screen and (max-width: 375px) {
+        font-size: 1.5rem;
+        
       }
     }
 
@@ -242,6 +251,20 @@ onMounted(async () => {
       font-family: "Roboto", sans-serif;
       font-style: normal;
       line-height: 150%;
+
+       @media screen and (max-width: 768px) {
+        font-size: 1.125rem;
+        line-height: 130%;
+      }
+
+      // @media screen and (max-width: 480px) {
+      //   font-size: 1rem;
+      // }
+
+      // @media screen and (max-width: 375px) {
+      //   font-size: 0.9rem;
+        
+      // }
     }
     p {
       font-weight: 400;
@@ -312,11 +335,11 @@ onMounted(async () => {
   }
 
   @media screen and (max-width: 768px) {
-    padding-block: 90px;
+    padding-block: 80px;
   }
 
   @media screen and (max-width: 425px) {
-    padding-block: 75px;
+    padding-block: 70px;
   }
 
   @media screen and (max-width: 375px) {

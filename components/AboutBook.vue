@@ -99,7 +99,7 @@ onMounted(async () => {
   }
 
   h2 {
-     font-size: 2.25rem;
+     font-size: 2.5rem;
       font-weight: 700;
       font-family: "Merriweather", sans-serif;
       font-style: normal;
@@ -115,7 +115,7 @@ onMounted(async () => {
       }
 
       @media screen and (max-width: 375px) {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         
       }
 
@@ -135,14 +135,14 @@ onMounted(async () => {
         line-height: 130%;
       }
 
-      @media screen and (max-width: 480px) {
-        font-size: 1rem;
-      }
+      // @media screen and (max-width: 480px) {
+      //   font-size: 1rem;
+      // }
 
-      @media screen and (max-width: 375px) {
-        font-size: 0.9rem;
+      // @media screen and (max-width: 375px) {
+      //   font-size: 0.9rem;
         
-      }
+      // }
 
   }
 
@@ -174,11 +174,11 @@ onMounted(async () => {
   }
 
   @media screen and (max-width: 768px) {
-    padding-block: 90px;
+    padding-block: 80px;
   }
 
   @media screen and (max-width: 425px) {
-    padding-block: 75px;
+    padding-block: 70px;
   }
 
   @media screen and (max-width: 375px) {

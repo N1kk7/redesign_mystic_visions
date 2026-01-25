@@ -149,7 +149,6 @@ onMounted(async () => {
     justify-content: center;
     color: white;
     position: relative;
-    // transform: translateY(-5%);
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -165,7 +164,7 @@ onMounted(async () => {
 
   h1 {
     font-family: "Merriweather", sans-serif;
-    font-size: clamp(1.3rem, 5vw, 4.5rem);
+    font-size: clamp(1.5rem, 5vw, 4.5rem);
     font-weight: 800;
     text-align: center;
     line-height: 1.2;
@@ -183,7 +182,7 @@ onMounted(async () => {
     @media screen and (max-width: 768px) {
         text-align: center;
 
-        font-size: clamp(1rem, 2vw, 1.5rem);
+        font-size: clamp(1.125rem, 2vw, 1.5rem);
     }
   }
 
