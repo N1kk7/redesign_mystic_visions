@@ -98,7 +98,7 @@ onMounted(async () => {
   gsap.from(sliderRef.value, {
     scrollTrigger: {
       trigger: sliderRef.value,
-      start: "top 80%",
+      start: "top 60%",
       toggleActions: "play none none none",
     },
     opacity: 0,
@@ -112,7 +112,7 @@ onMounted(async () => {
   gsap.from(textEls, {
     scrollTrigger: {
       trigger: infoRef.value,
-      start: "top 80%",
+      start: "top 65%",
       toggleActions: "play none none none",
     },
     opacity: 0,
@@ -257,14 +257,6 @@ onMounted(async () => {
         line-height: 130%;
       }
 
-      // @media screen and (max-width: 480px) {
-      //   font-size: 1rem;
-      // }
-
-      // @media screen and (max-width: 375px) {
-      //   font-size: 0.9rem;
-        
-      // }
     }
     p {
       font-weight: 400;

@@ -1,14 +1,16 @@
 <template>
   <section ref="section" class="parallax">
-    <div ref="bg" class="parallax__bg"></div>
+    <div ref="bg" class="parallax__bg">
     <div class="parallax_overlay"></div>
+
+    </div>
     <div class="parallax_text">
-      <p>
+      <p ref="text1">
         People who read this aren't looking for permission. They prefer a clear
         vision over optimism.
       </p>
 
-      <p>
+      <p ref="text2">
         People find this book when they've become tired of platitudes,
         shortcuts, and advice that doesn't lead anywhere.
       </p>
@@ -17,46 +19,17 @@
 </template>
 
 
-<!-- <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-
-const sectionRef = ref(null);
-let ticking = false;
-
-const handleScroll = () => {
-  if (!sectionRef.value || ticking) return;
-
-  ticking = true;
-
-  requestAnimationFrame(() => {
-    const rect = sectionRef.value.getBoundingClientRect();
-    const offset = rect.top * 0.2;
-
-    sectionRef.value.style.setProperty(
-      "--parallax-offset",
-      `${offset}px`
-    );
-
-    ticking = false;
-  });
-};
-
-onMounted(() => {
-  handleScroll();
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-</script> -->
-
-
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const section = ref(null);
 const bg = ref(null);
+const text1 = ref(null);
+const text2 = ref(null);
 
 let ticking = false;
 
@@ -69,13 +42,11 @@ const handleScroll = () => {
     const rect = section.value.getBoundingClientRect();
     const vh = window.innerHeight;
 
-    // прогресс нахождения секции во viewport
     const progress = Math.min(
       1,
       Math.max(0, (vh - rect.top) / (vh + rect.height))
     );
 
-    // максимальный сдвиг фона
     const maxTranslate = bg.value.offsetHeight - section.value.offsetHeight;
 
     bg.value.style.transform = `translateY(${-maxTranslate * progress}px)`;
@@ -84,10 +55,48 @@ const handleScroll = () => {
   });
 };
 
-onMounted(() => {
+onMounted(async() => {
+
+
   handleScroll();
   window.addEventListener("scroll", handleScroll, { passive: true });
+
+  await nextTick();
+
+  // const text = [text1.value, text2.value];
+
+  // gsap.to(text, {
+  //   y: -100, 
+  //   ease: "none",
+  //   scrollTrigger: {
+  //     trigger: section.value,
+  //     start: "top bottom",
+  //     end: "bottom top",  
+  //     scrub: true,
+  //   },
+  // });
+
+  const texts = [text1.value, text2.value];
+
+  gsap.set(texts, {
+    opacity: 0,
+    y: 40,
+  });
+
+  gsap.to(texts, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power3.out",
+    stagger: 0.4, 
+    scrollTrigger: {
+      trigger: section.value,
+      start: "top 40%",
+      toggleActions: "play none none none",
+    },
+  });
 });
+
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
@@ -148,6 +157,7 @@ onUnmounted(() => {
             font-size: 1.8rem;
             line-height: 150%;
             text-align: baseline;
+            will-change: transform;
 
             @media screen and (max-width: 1024px) {
               max-width: 80%;

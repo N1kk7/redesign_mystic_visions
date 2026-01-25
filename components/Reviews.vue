@@ -1,4 +1,3 @@
-
 <template>
   <section class="reviews" ref="reviewsRef">
     <div class="container">
@@ -6,71 +5,78 @@
         <div class="reviews_content_item" ref="card1">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
-                <NuxtImg
-                    class="reviews_content_item_avatar"
-                    src="/images/liam_s.webp"
-                    alt="Liam S."
-                    width="50"
-                    height="50"
-                />
+              <img
+                class="reviews_content_item_avatar"
+                src="/images/liam_s.webp"
+                alt="Liam S."
+                width="50"
+                height="50"
+              />
             </div>
             <p>
-              "<strong>Before this, I had no clear structure.</strong> I knew I wanted to lower costs, work remotely, and change my living situation, but I didn't know how to organize those goals."
+              "<strong>Before this, I had no clear structure.</strong> I knew I
+              wanted to lower costs, work remotely, and change my living
+              situation, but I didn't know how to organize those goals."
             </p>
           </div>
           <div class="card_bottom">
             <strong>Liam S.</strong>
-            <div class="card_position">Remote Software Engineer — United States</div>
+            <div class="card_position">
+              Remote Software Engineer — United States
+            </div>
           </div>
         </div>
 
         <div class="reviews_content_item" ref="card2">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
-
-                 <NuxtImg
-                    class="reviews_content_item_avatar"
-                    src="/images/sean_m.webp"
-                    alt="Sean M."
-                    width="50"
-                    height="50"
-                    />
-
-
+              <img
+                class="reviews_content_item_avatar"
+                src="/images/sean_m.webp"
+                alt="Sean M."
+                width="50"
+                height="50"
+              />
             </div>
 
-           
             <p>
-              "What stood out most was how my thinking changed. <strong>The ideas weren't abstract.</strong> They helped me see my situation more clearly and make better decisions."
+              "What stood out most was how my thinking changed.
+              <strong>The ideas weren't abstract.</strong> They helped me see my
+              situation more clearly and make better decisions."
             </p>
           </div>
           <div class="card_bottom">
             <strong>Sean M.</strong>
-            <div class="card_position">Independent Consultant — United States</div>
+            <div class="card_position">
+              Independent Consultant — United States
+            </div>
           </div>
         </div>
 
         <div class="reviews_content_item" ref="card3">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
-
-<NuxtImg
-              class="reviews_content_item_avatar"
-              src="/images/alexander_k.webp"
-              alt="Alexander K."
-              width="50"
-              height="50"
-            />
+              <img
+                class="reviews_content_item_avatar"
+                src="/images/alexander_k.webp"
+                alt="Alexander K."
+                width="50"
+                height="50"
+              />
             </div>
-            
-            
+
             <p>
-              "I didn't need more motivation. <strong>I needed to place my effort correctly.</strong> Once I understood that, my decisions became simpler and my actions more deliberate."
+              "I didn't need more motivation.
+              <strong>I needed to place my effort correctly.</strong> Once I
+              understood that, my decisions became simpler and my actions more
+              deliberate."
             </p>
           </div>
           <div class="card_bottom">
             <strong>Alexander K.</strong>
-            <div class="card_position">Product & Operations Manager — Germany</div>
+            <div class="card_position">
+              Product & Operations Manager — Germany
+            </div>
           </div>
         </div>
       </div>
@@ -95,20 +101,13 @@ onMounted(async () => {
 
   const cards = [card1.value, card2.value, card3.value];
 
-  cards.forEach((card) => {
-    card.style.opacity = 0;
-    card.style.transform = "translateY(40px) scale(0.95)";
+  gsap.set(cards, {
+    opacity: 0,
+    y: 40,
+    scale: 0.95,
+    willChange: "transform, opacity",
   });
-
-  const images = document.querySelectorAll(".reviews_content_item_avatar");
-  await Promise.all(
-    Array.from(images).map(
-      (img) =>
-        img.complete
-          ? Promise.resolve()
-          : new Promise((res) => (img.onload = res))
-    )
-  );
+  ScrollTrigger.refresh();
 
   const isDesktop = window.innerWidth >= 768;
 
@@ -121,8 +120,9 @@ onMounted(async () => {
       ease: "power3.out",
       stagger: 0.25,
       scrollTrigger: {
+        invalidateOnRefresh: true,
         trigger: reviewsRef.value,
-        start: "top 80%",
+        start: "top 50%",
         toggleActions: "play none none none",
       },
     });
@@ -135,6 +135,7 @@ onMounted(async () => {
         duration: 0.7,
         ease: "power3.out",
         scrollTrigger: {
+            invalidateOnRefresh: true,
           trigger: card,
           start: "top 90%",
           toggleActions: "play none none none",
@@ -146,130 +147,120 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
+.reviews {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding-block: 128px;
 
-    .reviews {
-        width: 100%;
-        height: auto;
+  &_content {
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 48px;
+
+    &_item {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    //   opacity: 0;
+    //   transform: translateY(40px) scale(0.95);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #d4d4db;
+      border-radius: 22px;
+      padding: 32px;
+      gap: 24px;
+
+      &_avatar_wrapper {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        border: 4px solid #7033ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // object-fit: cover;
+        overflow: hidden;
         position: relative;
-        padding-block: 128px;
 
-
-        &_content {
-            display: grid;
-            // grid-template-columns: repeat(3, 1fr);
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: stretch;
-            gap: 48px;
-
-
-
-
-            &_item {
-                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-                  opacity: 0;
-                    transform: translateY(40px) scale(0.95);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid #d4d4db;
-                border-radius: 22px;
-                padding: 32px;
-                gap: 24px;
-
-                &_avatar_wrapper {
-                    width: 96px;
-                    height: 96px;
-                    border-radius: 50%;
-                    border: 4px solid #7033ff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    // object-fit: cover;
-                    overflow: hidden;
-                    position: relative;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                    
-                }
-
-                @media screen and (max-width: 768px) {
-                    box-sizing: border-box;
-                    width: 100%;
-                }
-            }
-
-            @media screen and (max-width: 1024px) {
-                gap: clamp(10px, 3vw, 48px);
-            }
-
-            @media screen and (max-width: 768px) {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 24px;
-            }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
+      }
 
-        .card_top {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 24px;
+      @media screen and (max-width: 768px) {
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
 
-            p {
-                font-family: "Roboto", sans-serif;
-                font-size: 1.125rem;
-                line-height: 150%;
-                font-weight: 400;
-                font-style: normal;
-            }
-        }
+    @media screen and (max-width: 1024px) {
+      gap: clamp(10px, 3vw, 48px);
+    }
 
-        .card_bottom {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+    }
+  }
 
-            .card_author {
-                 font-family: "Roboto", sans-serif;
-                font-size: 1.125rem;
-                line-height: 150%;
-                font-weight: 500;
-                font-style: normal;
-            }
+  .card_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
 
-            .card_position {
-                 font-family: "Roboto", sans-serif;
-                font-size: 0.9rem;
-                line-height: 150%;
-                font-weight: 400;
-                font-style: normal;
-                text-align: center;
-            }
+    p {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.125rem;
+      line-height: 150%;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
 
-            
-        }
-        .card_position {
-                font-size: .85rem;
-                font-weight: 400;
-            }
+  .card_bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 
+    .card_author {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.125rem;
+      line-height: 150%;
+      font-weight: 500;
+      font-style: normal;
+    }
 
-        @media screen and (max-width: 1024px) {
-            padding-block: 100px;
+    .card_position {
+      font-family: "Roboto", sans-serif;
+      font-size: 0.9rem;
+      line-height: 150%;
+      font-weight: 400;
+      font-style: normal;
+      text-align: center;
+    }
+  }
+  .card_position {
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
 
-        }
+  @media screen and (max-width: 1024px) {
+    padding-block: 100px;
+  }
 
-        @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding-block: 80px;
   }
 
@@ -280,17 +271,5 @@ onMounted(async () => {
   @media screen and (max-width: 375px) {
     padding-block: 60px;
   }
- 
-
-
-
-
-
-
-
-
-    }
-
-
-
+}
 </style>

@@ -149,6 +149,7 @@ onMounted(async () => {
     justify-content: center;
     color: white;
     position: relative;
+    padding-top: 10%;
     z-index: 1;
     width: 100%;
     height: 100%;

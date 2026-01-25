@@ -45,7 +45,7 @@ onMounted(async () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.value,
-      start: "top 80%",
+      start: "top 70%",
       toggleActions: "play none none none",
     },
   });
@@ -57,11 +57,11 @@ onMounted(async () => {
     ease: "power3.out",
   });
 
-  tl.from(para1Ref.value, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
-  tl.from(para2Ref.value, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
-  tl.from(para3Ref.value, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
+  tl.from(para1Ref.value, { opacity: 0, y: 20, duration: 0.4, ease: "power3.out" });
+  tl.from(para2Ref.value, { opacity: 0, y: 20, duration: 0.4, ease: "power3.out" });
+  tl.from(para3Ref.value, { opacity: 0, y: 20, duration: 0.4, ease: "power3.out" });
 
-  tl.from(strongRef.value, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" });
+  tl.from(strongRef.value, { opacity: 0, y: 20, duration: 0.4, ease: "power3.out" });
 });
 </script>
 
