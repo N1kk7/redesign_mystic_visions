@@ -108,7 +108,7 @@ onMounted(async () => {
 <style lang="scss">
 .hero {
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   position: relative;
   display: block;
 
