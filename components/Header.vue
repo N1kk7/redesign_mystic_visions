@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :class="activeHeaderState ? 'active_header' : ''">
+  <div ref="headerRef" class="header" :class="activeHeaderState ? 'active_header' : ''">
     <div class="container">
       <div class="header_content">
         <div :class="activeTitleState ? 'main_title_active':''" class="main_title">
@@ -19,11 +19,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 
 const activeHeaderState = ref(false);
 const activeTitleState = ref(false);
 const screenHeight = ref(0);
+const headerRef = ref(null);
 
 const handleScroll = () => {
     activeHeaderState.value = window.scrollY > 50
@@ -31,19 +32,33 @@ const handleScroll = () => {
 };
 
 
+const setHeaderHeight = () => {
+  if (!headerRef.value) return;
+
+  const height = headerRef.value.offsetHeight;
+  document.documentElement.style.setProperty(
+    '--header-height',
+    `${height}px`
+  );
+};
 
 
 
-onMounted(() => {
+onMounted(async () => {
 
   screenHeight.value = window.innerHeight;
 
-    window.addEventListener('scroll', handleScroll);
-})
+  window.addEventListener('scroll', handleScroll);
+
+  await nextTick();
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+});
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
-})
+  window.removeEventListener('resize', setHeaderHeight);
+});
 
 
 </script>

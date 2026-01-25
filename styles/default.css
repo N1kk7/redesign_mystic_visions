@@ -3,6 +3,21 @@
 @import 'swiper/css/pagination';
 
 
+:root {
+  --header-height: 85px;
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+      --header-height: 65px;
+    }
+}
+@media screen and (max-width: 375px) {
+  :root {
+      --header-height: 45px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;

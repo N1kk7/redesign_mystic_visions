@@ -134,6 +134,8 @@ onMounted(async () => {
   &_video {
     width: 100%;
     height: 100%;
+    padding-top: var(--header-height);
+    transition: all ease 0.3s;
     position: absolute;
     object-fit: cover;
     top: 0;
