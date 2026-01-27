@@ -228,6 +228,7 @@ onMounted(async () => {
 
     @media screen and (max-width: 1024px) {
       max-width: unset;
+      height: auto;
     }
 
     @media screen and (max-width: 768px) {
