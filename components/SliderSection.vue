@@ -12,6 +12,7 @@
               keyboard
               class="mySwiper"
             >
+
               <SwiperSlide v-for="img in sliderData" :key="img.id">
                 <NuxtImg
                   :src="img.imgPath"
@@ -70,26 +71,25 @@ const modules = [Navigation, Pagination];
 const sliderData = ref([
   {
     id: 1,
-    imgPath: "/images/slider1.webp",
+    imgPath: "/images/slider1.jpg",
   },
   {
     id: 2,
-    imgPath: "/images/slider2.webp",
+    imgPath: "/images/slider2.jpg",
   },
   {
     id: 3,
-    imgPath: "/images/slider3.webp",
+    imgPath: "/images/slider3.jpg",
   },
   {
     id: 4,
-    imgPath: "/images/slider4.webp",
+    imgPath: "/images/slider4.jpg",
   },
 ]);
 
 const sectionRef = ref(null);
 const sliderRef = ref(null);
 const infoRef = ref(null);
-
 
 onMounted(async () => {
   await nextTick();
@@ -137,6 +137,8 @@ onMounted(async () => {
     --swiper-navigation-color: #fff;
     --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.8);
     --swiper-pagination-color: #fff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
 
     .swiper-button-next,
     .swiper-button-prev {
@@ -178,8 +180,12 @@ onMounted(async () => {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 64px;
+
+    @media screen and (max-width: 1300px) {
+      gap: 32px;
+    }
 
     @media screen and (max-width: 1024px) {
       display: flex;
@@ -187,6 +193,16 @@ onMounted(async () => {
       align-items: center;
       justify-content: flex-start;
       gap: 64px;
+    }
+
+    @media screen and (max-width: 768px) {
+      gap: 48px;
+    }
+    @media screen and (max-width: 480px) {
+      gap: 36px;
+    }
+    @media screen and (max-width: 375px) {
+      gap: 32px;
     }
   }
 
@@ -204,13 +220,22 @@ onMounted(async () => {
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         // object-fit: contain;
       }
     }
 
+    @media screen and (max-width: 1024px) {
+      max-width: unset;
+    }
+
     @media screen and (max-width: 768px) {
       max-width: 90%;
-      height: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      max-width: 100%;
     }
   }
 
@@ -218,14 +243,20 @@ onMounted(async () => {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 48px;
+    background: white;
+    border-radius: 40px;
+    // max-height: 600px;
+    padding: 6% 2vw;
+    border: 1px solid black;
+    // gap: 48px;
 
     h3 {
-      font-size: 2.5rem;
+      font-size: clamp(1.875rem, 3vw, 2.5rem);
       font-weight: 700;
       font-family: "Merriweather", sans-serif;
+      white-space: nowrap;
       font-style: normal;
       line-height: 150%;
 
@@ -235,13 +266,14 @@ onMounted(async () => {
       }
 
       @media screen and (max-width: 480px) {
-        font-size: 1.6rem;
+        font-size: clamp(1.2rem, 7vw, 1.6rem);
+        padding-top: 10px;
       }
 
-      @media screen and (max-width: 375px) {
-        font-size: 1.5rem;
-        
-      }
+      // @media screen and (max-width: 375px) {
+      //   font-size: 1.5rem;
+
+      // }
     }
 
     strong,
@@ -252,11 +284,10 @@ onMounted(async () => {
       font-style: normal;
       line-height: 150%;
 
-       @media screen and (max-width: 768px) {
+      @media screen and (max-width: 768px) {
         font-size: 1.125rem;
         line-height: 130%;
       }
-
     }
     p {
       font-weight: 400;
@@ -273,7 +304,8 @@ onMounted(async () => {
       align-items: center;
       font-family: "Roboto", sans-serif;
       font-weight: 600;
-      background: rgb(253, 130, 43);
+      // background: rgb(253, 130, 43);
+      background: #f7ac0b;
       border-radius: 20px;
       color: white;
       font-size: 1rem;
@@ -281,18 +313,24 @@ onMounted(async () => {
 
       @media screen and (min-width: 1024px) {
         &:hover {
-          background: rgb(255, 112, 10);
+          // background: rgb(255, 112, 10);
+          background: #f0a607;
+
           transition: all ease 0.3s;
         }
       }
 
       &:active {
-        background: rgb(255, 112, 10);
+        // background: rgb(255, 112, 10);
+        background: #f0a607;
+
         transition: all ease 0.3s;
       }
     }
 
     @media screen and (max-width: 768px) {
+      padding: 6%;
+      width: 100%;
       gap: 35px;
     }
     @media screen and (max-width: 425px) {
@@ -319,7 +357,6 @@ onMounted(async () => {
     @media screen and (max-width: 375px) {
       gap: 15px;
     }
-
   }
 
   @media screen and (max-width: 1024px) {

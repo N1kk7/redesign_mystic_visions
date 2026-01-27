@@ -1,10 +1,15 @@
 <template>
   <div ref="headerRef" class="header" :class="activeHeaderState ? 'active_header' : ''">
-    <div class="container">
+    <!-- <div class="header_wrapper"> -->
+       <div class="container">
+      
       <div class="header_content">
-        <div :class="activeTitleState ? 'main_title_active':''" class="main_title">
+
+        <!-- <div :class="activeTitleState ? 'main_title_active':''" class="main_title">
           The Pillars of Wisdom
-        </div>
+        </div> -->
+        <img :class="activeTitleState ? 'logo_active':''" src="/images/logo.png" alt="logo">
+
         <NuxtLink 
           class="link_btn"
           to="https://shop.thepillarsofwisdom.com/checkouts/cn/hWN7tonVpbDOa9dDloNf0Veb/en-mx?_r=AQABpJ7nq5P6Qh6hehgo-XLUTSYHqH0Dn0u1owxTiPAR99A&auto_redirect=false&edge_redirect=true&skip_shop_pay=true"
@@ -15,6 +20,9 @@
         
       </div>
     </div>
+        
+      <!-- </div> -->
+   
   </div>
 </template>
 
@@ -73,41 +81,62 @@ onUnmounted(() => {
   color: black;
   background-color: white;
   transition: all ease 0.3s;
-  padding-block: 24px;
+  // padding-block: 24px;
+  height: 90px;
   max-height: 90px;
   font-weight: 300;
   z-index: 15;
+
+  // &_wrapper {
+  //   height: 100%;
+  //   width: 100%;
+  // }
 
 
   &_content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-block: 24px;
+    height: 100%;
     gap: 10px;
 
-    .main_title {
-      font-family: "Merriweather", sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.5rem, 3vw, 3rem);
-      transition: all ease 0.4s;
-      color: black;
-
-      @media screen and (max-width: 480px) {
-        font-size: clamp(1rem, 5vw, 1.5rem);
-      }
+    img {
+      max-height: 24px;
+      width: clamp(100px, 62vw, 410px);
+      transition: all ease 0.3s;
     }
 
-    .main_title_active {
-      transition: all ease 0.4s;
-      color: white;
-}
+    .logo_active {
+      filter: invert(1);
+      mix-blend-mode: lighten;
+      transition: all ease 0.3s;
+    }
+
+//     .main_title {
+//       font-family: "Merriweather", sans-serif;
+//       font-weight: 700;
+//       font-size: clamp(1.5rem, 3vw, 3rem);
+//       transition: all ease 0.4s;
+//       color: black;
+
+//       @media screen and (max-width: 480px) {
+//         font-size: clamp(1rem, 5vw, 1.5rem);
+//       }
+//     }
+
+//     .main_title_active {
+//       transition: all ease 0.4s;
+//       color: white;
+// }
 
     .link_btn {
       padding: 10px 30px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgb(253, 130, 43);
+      // background: rgb(253, 130, 43);
+      background: #F7AC0B;
       color: white;
       font-family: "Roboto", sans-serif;
       font-size: 1rem;
@@ -118,7 +147,8 @@ onUnmounted(() => {
 
       @media screen and (min-width: 1024px) {
         &:hover {
-          background: rgb(255, 112, 10);
+          // background: rgb(255, 112, 10);
+          background: #f0a607;
         transition: all ease 0.3s;
         }
       }
@@ -133,20 +163,33 @@ onUnmounted(() => {
       }
 
       &:active {
-        background: rgb(255, 112, 10);
+        // background: rgb(255, 112, 10);
+          background: #f0a607;
+
         transition: all ease 0.3s;
       }
+    }
+
+    @media screen and (max-width: 480px) {
+      // max-height: 65px;
+      padding-block: 16px;
+    }
+    @media screen and (max-width: 375px) {
+      // max-height: 45px;
+      padding-block: 12px;
     }
   }
 
   @media screen and (max-width: 480px) {
-    max-height: 65px;
-    padding-block: 16px;
-  }
-  @media screen and (max-width: 375px) {
-    max-height: 45px;
-    padding-block: 12px;
-  }
+      max-height: 65px;
+      // padding-block: 16px;
+    }
+    @media screen and (max-width: 375px) {
+      max-height: 45px;
+      // padding-block: 12px;
+    }
+
+  
 
 
 

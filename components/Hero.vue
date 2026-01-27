@@ -192,7 +192,9 @@ onMounted(async () => {
     justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
-      background: rgb(253, 130, 43);
+      // background: rgb(253, 130, 43);
+      background: #F7AC0B;
+
       font-weight: 500;
       margin-top: 20px;
       border-radius: 20px;
@@ -202,7 +204,9 @@ color: white;
 
       @media screen and (min-width: 1024px) {
         &:hover {
-          background: rgb(255, 112, 10);
+          // background: rgb(255, 112, 10);
+          background: #f0a607;
+
         transition: all ease 0.3s;
         }
       }
@@ -220,7 +224,9 @@ color: white;
 
 
       &:active {
-        background: rgb(255, 112, 10);
+        // background: rgb(255, 112, 10);
+          background: #f0a607;
+
         transition: all ease 0.3s;
       }
 

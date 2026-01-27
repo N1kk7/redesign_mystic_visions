@@ -45,7 +45,7 @@ onMounted(async () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.value,
-      start: "top 70%",
+      start: "top 80%",
       toggleActions: "play none none none",
     },
   });
@@ -78,6 +78,10 @@ onMounted(async () => {
     justify-content: center;
     align-items: flex-start;
     width: clamp(280px, 80%, 1000px);
+    background: white;
+    border: 1px solid #371C47;
+    border-radius: 40px;
+    padding: 6%;
     height: auto;
     margin: 0 auto;
     gap: 32px;
