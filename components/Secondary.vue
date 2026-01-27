@@ -13,8 +13,8 @@
 
         <p class="secondary_text">
           You're already paying attention to the shifts in the world around you.
-          The Pillars of Wisdom is where you look more closely and a clearer
-          shape.
+          The Pillars of Wisdom is where you look closer and start seeing a
+          clearer shape.
         </p>
 
         <NuxtLink to="/" target="_blank" class="secondary_link">
@@ -67,7 +67,7 @@ onMounted(async () => {
         duration: 0.8,
         ease: "power3.out",
       },
-      "-=0.4"
+      "-=0.4",
     )
     .from(
       link,
@@ -78,7 +78,7 @@ onMounted(async () => {
         duration: 0.8,
         ease: "power3.out",
       },
-      "-=0.3"
+      "-=0.3",
     );
 });
 </script>
@@ -112,12 +112,13 @@ onMounted(async () => {
 
   &_text {
     text-align: center;
+    font-family: "Josefin Sans", sans-serif;
     font-size: 1.875rem;
     font-weight: 300;
     line-height: 2.25rem;
 
     @media screen and (max-width: 480px) {
-        font-size: 1.5rem
+      font-size: 1.5rem;
     }
   }
 
@@ -127,34 +128,34 @@ onMounted(async () => {
     justify-content: center;
     align-items: center;
     font-family: "SF-Pro", sans-serif;
+    font-weight: 600;
     // background: rgb(253, 130, 43);
-    background: #F7AC0B;
+    background: #f7ac0b;
     border-radius: 20px;
     color: white;
     font-size: 1rem;
     padding: 16px 32px;
 
     @media screen and (min-width: 1024px) {
-        &:hover {
-          // background: rgb(255, 112, 10);
+      &:hover {
+        // background: rgb(255, 112, 10);
         background: #f0a607;
         transition: all ease 0.3s;
-        }
       }
+    }
 
-      &:active {
-        background: rgb(255, 112, 10);
-        background: #f0a607;
-        transition: all ease 0.3s;
-      }
+    &:active {
+      background: rgb(255, 112, 10);
+      background: #f0a607;
+      transition: all ease 0.3s;
+    }
   }
 
-   @media screen and (max-width: 1024px) {
-            padding-block: 100px;
+  @media screen and (max-width: 1024px) {
+    padding-block: 100px;
+  }
 
-        }
-
-        @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding-block: 80px;
   }
 
@@ -165,6 +166,5 @@ onMounted(async () => {
   @media screen and (max-width: 375px) {
     padding-block: 60px;
   }
- 
 }
 </style>

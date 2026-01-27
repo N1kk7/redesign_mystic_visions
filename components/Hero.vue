@@ -164,9 +164,9 @@ onMounted(async () => {
   }
 
   h1 {
-    font-family: "Merriweather", sans-serif;
+    font-family: "Libre Baskerville", sans-serif;
     font-size: clamp(1.5rem, 5vw, 4.5rem);
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
     line-height: 1.2;
   }
@@ -176,7 +176,8 @@ onMounted(async () => {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
     font-size: 1.5rem;
     gap: 24px;
 
@@ -195,7 +196,7 @@ onMounted(async () => {
       // background: rgb(253, 130, 43);
       background: #F7AC0B;
 
-      font-weight: 500;
+      font-weight: 700;
       margin-top: 20px;
       border-radius: 20px;
 color: white;

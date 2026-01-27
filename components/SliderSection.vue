@@ -256,7 +256,7 @@ onMounted(async () => {
     h3 {
       font-size: clamp(1.875rem, 3vw, 2.5rem);
       font-weight: 700;
-      font-family: "Merriweather", sans-serif;
+      font-family: "Libre Baskerville", sans-serif;
       white-space: nowrap;
       font-style: normal;
       line-height: 150%;
@@ -280,8 +280,9 @@ onMounted(async () => {
     strong,
     p {
       font-size: 1.25rem;
-      font-weight: 600;
-      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-family: 'Josefin Sans', sans-serif;
+
       font-style: normal;
       line-height: 150%;
 
@@ -295,7 +296,7 @@ onMounted(async () => {
     }
 
     strong {
-      font-family: "Merriweather", sans-serif;
+      font-family: "Libre Baskerville", sans-serif;
       font-weight: 700;
     }
 

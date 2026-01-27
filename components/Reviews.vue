@@ -219,7 +219,7 @@ onMounted(async () => {
     gap: 24px;
 
     p {
-      font-family: "Roboto", sans-serif;
+      font-family: "Josefin Sans", sans-serif;
       font-size: 1.125rem;
       line-height: 150%;
       font-weight: 400;
@@ -235,7 +235,7 @@ onMounted(async () => {
     gap: 5px;
 
     .card_author {
-      font-family: "Roboto", sans-serif;
+      font-family: "Josefin Sans", sans-serif;
       font-size: 1.125rem;
       line-height: 150%;
       font-weight: 500;
@@ -243,7 +243,7 @@ onMounted(async () => {
     }
 
     .card_position {
-      font-family: "Roboto", sans-serif;
+      font-family: "Josefin Sans", sans-serif;
       font-size: 0.9rem;
       line-height: 150%;
       font-weight: 400;
