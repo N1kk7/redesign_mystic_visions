@@ -1,5 +1,5 @@
 <template>
-  <section ref="section" class="parallax">
+  <section ref="section" class="parallax" id="author">
     <div ref="bg" class="parallax__bg">
       <div class="parallax_overlay"></div>
     </div>
@@ -189,7 +189,7 @@ onUnmounted(() => {
     }
 
     .strong_bottom {
-      font-size: clamp(0.9rem, 2.3vw, 1.3rem);
+      font-size: clamp(0.75rem, 2.1vw, 1.3rem);
 
       font-family: "Libre Baskerville", sans-serif;
       font-weight: 700;

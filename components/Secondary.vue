@@ -127,8 +127,9 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "SF-Pro", sans-serif;
-    font-weight: 600;
+    font-family: "Libre Baskerville", sans-serif;
+
+    font-weight: 700;
     // background: rgb(253, 130, 43);
     background: #f7ac0b;
     border-radius: 20px;

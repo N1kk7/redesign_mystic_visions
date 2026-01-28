@@ -203,16 +203,14 @@
         @media screen and (max-width: 1024px) {
           transform: translateY(0);
         }
-
-        
       }
 
       @media screen and (max-width: 480px) {
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: flex-start;
-          gap: 20px;
-        }
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
+      }
 
       // .main {
       //   display: flex;
@@ -394,13 +392,15 @@
           white-space: nowrap;
         }
 
-        .text, .final {
+        .text,
+        .final {
           white-space: nowrap;
-            font-size: clamp(0.8rem, 2.5vw, 1rem);
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            line-height: 150%;
+          font-size: clamp(0.8rem, 2.5vw, 1rem);
+          font-family: "Libre Baskerville", sans-serif;
+
+          font-weight: 500;
+          font-style: normal;
+          line-height: 150%;
           @media screen and (max-width: 480px) {
             // font-size: 0.8rem;
             white-space: unset;
@@ -411,7 +411,7 @@
           flex-direction: column-reverse;
         }
         @media screen and (max-width: 480px) {
-          gap: 15px
+          gap: 15px;
         }
       }
 
@@ -431,7 +431,7 @@
           span {
             white-space: nowrap;
             font-size: clamp(0.8rem, 2.5vw, 1rem);
-            font-family: "Roboto", sans-serif;
+            font-family: "Libre Baskerville", sans-serif;
             font-weight: 500;
             font-style: normal;
             line-height: 150%;
@@ -440,12 +440,11 @@
             }
           }
 
-            @media screen and (max-width: 480px) {
-              justify-content: flex-start;
-              gap: 8px;
-              flex-wrap: wrap;
-            }
-
+          @media screen and (max-width: 480px) {
+            justify-content: flex-start;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
         }
 
         nav ul {
@@ -460,7 +459,7 @@
           li {
             white-space: nowrap;
             font-size: clamp(0.8rem, 2.5vw, 1rem);
-            font-family: "Roboto", sans-serif;
+            font-family: "Libre Baskerville", sans-serif;
             font-weight: 500;
             font-style: normal;
             line-height: 150%;
@@ -477,9 +476,8 @@
           width: 100%;
         }
         @media screen and (max-width: 480px) {
-          gap: 15px
+          gap: 15px;
         }
-        
       }
 
       @media screen and (max-width: 1024px) {
@@ -488,8 +486,6 @@
         align-items: flex-start;
         gap: 30px;
       }
-
-      
 
       // .text, .final {
       //   text-align: center;

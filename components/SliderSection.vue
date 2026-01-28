@@ -1,5 +1,5 @@
 <template>
-  <section class="slider_section" ref="sectionRef">
+  <section class="slider_section" ref="sectionRef" id="book">
     <div class="container">
       <div class="slider_section_content">
         <ClientOnly>
@@ -248,10 +248,8 @@ onMounted(async () => {
     align-items: flex-start;
     background: white;
     border-radius: 40px;
-    // max-height: 600px;
     padding: 6% 2vw;
     border: 1px solid black;
-    // gap: 48px;
 
     h3 {
       font-size: clamp(1.875rem, 3vw, 2.5rem);
@@ -304,8 +302,8 @@ onMounted(async () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: "Roboto", sans-serif;
-      font-weight: 600;
+      font-family: "Libre Baskerville", sans-serif;
+      font-weight: 700;
       // background: rgb(253, 130, 43);
       background: #f7ac0b;
       border-radius: 20px;
@@ -328,6 +326,10 @@ onMounted(async () => {
 
         transition: all ease 0.3s;
       }
+    }
+
+    @media screen and (max-width: 1024px) {
+      gap: 40px;
     }
 
     @media screen and (max-width: 768px) {

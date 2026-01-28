@@ -1,5 +1,5 @@
 <template>
-  <section class="reviews" ref="reviewsRef">
+  <section class="reviews" ref="reviewsRef" id="reviews">
     <div class="container">
       <div class="reviews_content">
         <div class="reviews_content_item" ref="card1">

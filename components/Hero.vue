@@ -192,7 +192,8 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Roboto", sans-serif;
+    font-family: "Libre Baskerville", sans-serif;
+
       // background: rgb(253, 130, 43);
       background: #F7AC0B;
 
