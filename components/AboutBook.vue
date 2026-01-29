@@ -1,6 +1,6 @@
 <template>
   <section class="about_book" ref="sectionRef" id="framework">
-    <div class="about_book_wrapper">
+    <div class="about_book_wrapper" >
       <!-- <h2 ref="titleRef">This book is not for everyone.</h2>
 
       <p ref="para1Ref">
@@ -107,6 +107,10 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
+
+#framework {
+  scroll-margin-top: -25px;
+}
 .about_book {
   width: 100%;
   height: fit-content;

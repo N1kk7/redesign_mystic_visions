@@ -1,33 +1,46 @@
 <template>
-  <section class="reviews" ref="reviewsRef" id="reviews">
+  <section class="reviews"  id="reviews">
     <div class="container">
-      <div class="reviews_content">
-        <div class="reviews_content_item" ref="card1">
-          <div class="card_top">
-            <div class="reviews_content_item_avatar_wrapper">
-              <img
-                class="reviews_content_item_avatar"
-                src="/images/liam_s.webp"
-                alt="Liam S."
-                width="50"
-                height="50"
-              />
-            </div>
-            <p>
-              "<strong>Before this, I had no clear structure.</strong> I knew I
-              wanted to lower costs, work remotely, and change my living
-              situation, but I didn't know how to organize those goals."
-            </p>
-          </div>
-          <div class="card_bottom">
-            <strong>Liam S.</strong>
-            <div class="card_position">
-              Remote Software Engineer — United States
-            </div>
-          </div>
-        </div>
+      <div class="reviews_content" ref="reviewsRef">
+        <ClientOnly>
+          <Swiper
+            :modules="modules"
+            navigation
+            pagination
+            mousewheel
+            keyboard
+            :breakpoints="breakpoints"
+            class="mySwiper"
+          >
+            <SwiperSlide v-for="slide in reviewData" :key="slide.id">
+              <div class="reviews_content_item">
+                <div class="card_top">
+                  <div class="reviews_content_item_avatar_wrapper">
+                    <img
+                      class="reviews_content_item_avatar"
+                      :src="slide.avatar"
+                      :alt="slide.name"
+                      width="50"
+                      height="50"
+                    />
+                  </div>
+                  <p v-html="slide.html"></p>
+                </div>
+                <div class="card_bottom">
+                  <strong>{{ slide.name }}</strong>
+                  <div class="card_position">
+                    {{ slide.position }}
+                  </div>
+                </div>
+              </div>
 
-        <div class="reviews_content_item" ref="card2">
+
+            </SwiperSlide>
+          </Swiper>
+        </ClientOnly>
+        
+
+        <!-- <div class="reviews_content_item" ref="card2">
           <div class="card_top">
             <div class="reviews_content_item_avatar_wrapper">
               <img
@@ -78,71 +91,193 @@
               Product & Operations Manager — Germany
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination } from "swiper/modules";
 import { ref, onMounted, nextTick } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+const modules = [Navigation, Pagination];
+
+const breakpoints = {
+  300: { slidesPerView: 1, spaceBetween: 10 },
+  768: { slidesPerView: 2, spaceBetween: 20 },
+  1024: { slidesPerView: 3, spaceBetween: 30 },
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
+const reviewData = ref([
+  {
+    id: 1,
+    avatar: "/images/liam_s.webp",
+    html: `"<strong>Before this, I had no clear structure.</strong> I knew I
+              wanted to lower costs, work remotely, and change my living
+              situation, but I didn't know how to organize those goals."`,
+    name: "Liam S.",
+    position: "Remote Software Engineer — United States",
+  },
+  {
+    id: 2,
+    avatar: "/images/sean_m.webp",
+    html: `"What stood out most was how my thinking changed.
+              <strong>The ideas weren't abstract.</strong> They helped me see my
+              situation more clearly and make better decisions."`,
+    name: "Sean M.",
+    position: "Independent Consultant — United States",
+  },
+  {
+    id: 3,
+    avatar: "/images/alexander_k.webp",
+    html: `"I didn't need more motivation.
+              <strong>I needed to place my effort correctly.</strong> Once I
+              understood that, my decisions became simpler and my actions more
+              deliberate."`,
+    name: "Alexander K.",
+    position: "Product & Operations Manager — Germany",
+  },
+  {
+    id: 4,
+    avatar: "/images/alain.webp",
+    html: `"If I could travel back in time to my early 20s, the book I’d give my younger 
+            self is The Pillars of Wisdom by The Great GLO.  I’d recommend it to anyone feeling 
+            adrift and plotting their next move. GLO avoids lingering in abstraction, pivoting 
+            quickly to strategies for exploiting systemic flaws and prioritizing surplus energy 
+            and time. Had I encountered this book younger, I’d have sidestepped suboptimal 
+            choices and spared myself hard-learned lessons."`,
+    name: "Alan B.",
+    position: "Financial Consultant — Spain",
+  },
+  {
+    id: 5,
+    avatar: "/images/walt.webp",
+    html: `"At the end of the day GLO is encouraging guys to be agentic and opportunistic and 
+            forward-thinking—to think of themselves as capable predators instead of as victims. 
+            The practical strategies he offers are effective and attractively presented to the 
+            sort of feller who’d benefit from buying the book. Meanwhile a lot of the ideas 
+            in Pillars are genuinely compelling, and represent an actual step forward in a 
+            discourse space where “innovation” usually resembles trying to fix a clogged toilet 
+            by sloshing around in the stagnant miasma. Unlike the other guys GLO actually has a plunger."`,
+    name: "Walt B.",
+    position: "Writer — USA",
+  },
+  {
+    id: 6,
+    avatar: "/images/rach.webp",
+    html: `"You should buy it. GLO’s prose is lively and engaging, his practical advice useful and actionable, 
+          and his broader narrative sophisticated and compelling. This isn’t the tepid grainy Denny’s coffee you 
+          usually get with Manosphere books. Also the cover art is genuinely quite beautiful and fun to look at, 
+          which says a lot coming from me because I often find it difficult to appreciate visual art."`,
+    name: "Rach",
+    position: "Graphical Designer — UK",
+  },
+  {
+    id: 7,
+    avatar: "/images/alexander_k.webp",
+    html: `"For years now I’ve basically maintained that anyone who DOESN’T aggressively leverage asymmetric strategies 
+            in 21st century America is just sort of stupid, and that anyone who helps young men do so effectively is a lovely winner."`,
+    name: "Anthony R.",
+    position: "Programmer — Argentina",
+  },
+  {
+    id: 8,
+    avatar: "/images/robert.webp",
+    html: `"There’s usually a guy you meet after you’re out of your parents’ home who is able to put some of the finishing touches on you 
+            by imparting knowledge that can’t really come from your father. Instead of the official and nominal knowledge he will bestow 
+            you with some of the more esoteric and pragmatic tips that make life significantly better. If you’re Justin Bieber, it’s P. 
+            Diddy. But if you’re Luke Skywalker, it’s Obi-Wan. And if you’re one of the endless number of contemporary young men noticing 
+            that the world is outwardly hostile to you in both easy- and hard-to-understand ways, GLO is your guy.`,
+    name: "Robert S.",
+    position: "Executive Sales Manager — USA",
+  }
+]);
+
 const reviewsRef = ref(null);
-const card1 = ref(null);
-const card2 = ref(null);
-const card3 = ref(null);
+// const card1 = ref(null);
+// const card2 = ref(null);
+// const card3 = ref(null);
 
 onMounted(async () => {
   await nextTick();
 
-  const cards = [card1.value, card2.value, card3.value];
+  // const cards = [card1.value, card2.value, card3.value];
 
-  gsap.set(cards, {
+  // gsap.set(cards, {
+  //   opacity: 0,
+  //   y: 40,
+  //   scale: 0.95,
+  //   willChange: "transform, opacity",
+  // });
+  // ScrollTrigger.refresh();
+
+  // const isDesktop = window.innerWidth >= 768;
+
+  // if (isDesktop) {
+  //   gsap.to(cards, {
+  //     y: 0,
+  //     scale: 1,
+  //     opacity: 1,
+  //     duration: 0.8,
+  //     ease: "power3.out",
+  //     stagger: 0.25,
+  //     scrollTrigger: {
+  //       invalidateOnRefresh: true,
+  //       trigger: reviewsRef.value,
+  //       start: "top 50%",
+  //       toggleActions: "play none none none",
+  //     },
+  //   });
+  // } else {
+  //   cards.forEach((card) => {
+  //     gsap.to(card, {
+  //       y: 0,
+  //       scale: 1,
+  //       opacity: 1,
+  //       duration: 0.7,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         invalidateOnRefresh: true,
+  //         trigger: card,
+  //         start: "top 90%",
+  //         toggleActions: "play none none none",
+  //       },
+  //     });
+  //   });
+  // }
+
+  gsap.set(reviewsRef.value, {
     opacity: 0,
     y: 40,
     scale: 0.95,
     willChange: "transform, opacity",
   });
+
   ScrollTrigger.refresh();
 
-  const isDesktop = window.innerWidth >= 768;
-
-  if (isDesktop) {
-    gsap.to(cards, {
-      y: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      stagger: 0.25,
-      scrollTrigger: {
-        invalidateOnRefresh: true,
-        trigger: reviewsRef.value,
-        start: "top 50%",
-        toggleActions: "play none none none",
-      },
-    });
-  } else {
-    cards.forEach((card) => {
-      gsap.to(card, {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: {
-            invalidateOnRefresh: true,
-          trigger: card,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      });
-    });
-  }
+  gsap.to(reviewsRef.value, {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 0.8,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: reviewsRef.value,
+      start: "top 70%",
+      toggleActions: "play none none none",
+      once: true,
+    },
+  });
 });
 </script>
 
@@ -154,21 +289,82 @@ onMounted(async () => {
   padding-block: 128px;
 
   &_content {
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
+    // display: grid;
+    // grid-template-columns: repeat(3, minmax(0, 1fr));
+    // display: flex;
+    // justify-content: center;
+    // align-items: stretch;
     gap: 48px;
+
+
+    .mySwiper {
+    --swiper-navigation-color: #fff;
+    --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.8);
+    --swiper-pagination-color: #7033ff;
+    padding-bottom: 70px;
+    margin-bottom: 0;
+    // border-radius: 22px;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background: #7033ff;
+      width: 13px;
+      height: 13px;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 40px;
+      border-radius: 10px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      &:hover {
+        .swiper-button-next,
+        .swiper-button-prev {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(-50%) scale(0.95);
+        }
+      }
+    }
+  }
+
+
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      position: relative
+    }
 
     &_item {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    //   opacity: 0;
-    //   transform: translateY(40px) scale(0.95);
+    // box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+      //   opacity: 0;
+      //   transform: translateY(40px) scale(0.95);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       border: 1px solid #d4d4db;
+      height: 100%;
       border-radius: 22px;
       padding: 32px;
       gap: 24px;

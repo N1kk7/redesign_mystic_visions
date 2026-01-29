@@ -27,6 +27,7 @@
 
 
 <script setup>
+import { onMounted } from "vue";
 
 
 
@@ -61,6 +62,10 @@ useHead({
 
 
 }
+
+// onMounted(() => {
+//   window.scrollTo(0, 0);
+// })
 
 
 

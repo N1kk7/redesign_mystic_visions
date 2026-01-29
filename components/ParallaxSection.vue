@@ -4,12 +4,36 @@
       <div class="parallax_overlay"></div>
     </div>
     <div class="parallax_text">
-      <strong class="strong_top" ref="text1">
-        The framework outlined in The Pillars of Wisdom was not developed in
-        theory.
-      </strong>
+      <strong class="strong_top" ref="text1"> I'm GLO. </strong>
 
       <p ref="text2">
+        My writings have reached large audiences in the past decade. This book
+        is the distillation of my experience consulting people through
+        high-stakes decisions about how and where to live.
+      </p>
+
+      <p ref="text3">
+        The framework outlined in it was not developed in theory or hindsight. I
+        shaped it through decisions made in situations that were influenced by
+        real tradeoffs. Gathering insights by working directly with people
+        seeking long-term stability. People who had to navigate the rising
+        living costs and declining incentives.
+      </p>
+
+      <p ref="text4">
+        Throughout my career I've enabled people to see their situations clearly
+        through my book, The Pillars of Wisdom. Allowing them to reassess their
+        environments and act earlier to improve their living conditions.
+      </p>
+
+      <strong class="strong_bottom" ref="text5">
+        My framework has been pressure-tested by readers who are now living
+        abroad. It has been refined through repeated applications, and endorsed
+        by academic institutions. These ideas are not aspirational concepts.
+        They are practical lenses that have been formed under pressure.
+      </strong>
+
+      <!-- <p ref="text2">
         People find this book when they've become tired of platitudes,
         shortcuts, and advice that doesn't lead anywhere.
         It was shaped through decisions made in real-life situations influenced
@@ -28,7 +52,7 @@
         This book is not advice written from a distance. It is a result of
         choices with consequences that have already been made, and paths already
         taken.
-      </strong>
+      </strong> -->
     </div>
   </section>
 </template>
@@ -122,7 +146,7 @@ onUnmounted(() => {
   position: relative;
   // background: #898989;
   color: white;
-  padding: 350px 0 70px;
+  padding: 450px 0 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,11 +181,11 @@ onUnmounted(() => {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-      font-size: clamp(0.9rem, 2.3vw, 1.3rem);
+    font-size: clamp(0.9rem, 2.3vw, 1.3rem);
 
-      font-family: "Josefin Sans", sans-serif;
-      font-weight: 400;
-      line-height: 130%;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    line-height: 130%;
     max-width: 90%;
     gap: 20px;
     z-index: 1;
@@ -183,9 +207,8 @@ onUnmounted(() => {
       line-height: 130%;
       margin: 0 auto;
       @media screen and (max-width: 768px) {
-        padding-bottom: 10px
+        padding-bottom: 10px;
       }
-
     }
 
     .strong_bottom {
