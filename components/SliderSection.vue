@@ -85,6 +85,10 @@ const sliderData = ref([
     id: 4,
     imgPath: "/images/slider4.jpg",
   },
+  {
+    id: 5,
+    imgPath: "/images/slider5.jpg",
+  }
 ]);
 
 const sectionRef = ref(null);

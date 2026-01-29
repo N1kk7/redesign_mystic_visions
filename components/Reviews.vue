@@ -184,7 +184,7 @@ const reviewData = ref([
   },
   {
     id: 7,
-    avatar: "/images/alexander_k.webp",
+    avatar: "/images/default-user.png",
     html: `"For years now I’ve basically maintained that anyone who DOESN’T aggressively leverage asymmetric strategies 
             in 21st century America is just sort of stupid, and that anyone who helps young men do so effectively is a lovely winner."`,
     name: "Anthony R.",
