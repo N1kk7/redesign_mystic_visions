@@ -54,6 +54,8 @@
             target="_blank"
           >
             Read The Pillars of Wisdom
+
+            
           </NuxtLink>
         </div>
       </div>
