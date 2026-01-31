@@ -5,14 +5,21 @@
         <ClientOnly>
           <div class="swiper_wrapper" ref="sliderRef">
             <Swiper
+              @swiper="onSwiper"
               :modules="modules"
               navigation
               pagination
               mousewheel
+              :autoplay="{
+                delay: 6000,
+                disableOnInteraction: false,
+              }"
+              loop
               keyboard
               class="mySwiper"
+              @pointerenter="handleHover"
+              @pointerleave="handleSLiderBlur"
             >
-
               <SwiperSlide v-for="img in sliderData" :key="img.id">
                 <NuxtImg
                   :src="img.imgPath"
@@ -23,8 +30,6 @@
                 />
               </SwiperSlide>
             </Swiper>
-
-            
           </div>
         </ClientOnly>
 
@@ -57,8 +62,8 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination } from "swiper/modules";
-import { ref, onMounted, nextTick } from "vue";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -68,7 +73,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const modules = [Navigation, Pagination];
+const modules = [Navigation, Pagination, Autoplay];
 
 const sliderData = ref([
   {
@@ -90,15 +95,39 @@ const sliderData = ref([
   {
     id: 5,
     imgPath: "/images/slider5.jpg",
-  }
+  },
 ]);
 
 const sectionRef = ref(null);
 const sliderRef = ref(null);
 const infoRef = ref(null);
+const isDesktop = ref(false);
+const swiperInstance = ref(null);
+
+const onSwiper = (swiper) => {
+  swiperInstance.value = swiper;
+};
+
+const handleHover = () => {
+  console.log("hover");
+  if (!isDesktop.value) return;
+  swiperInstance.value?.autoplay.stop();
+};
+
+const handleSLiderBlur = () => {
+  console.log("blur");
+  if (!isDesktop.value) return;
+  swiperInstance.value?.autoplay.start();
+};
 
 onMounted(async () => {
   await nextTick();
+
+  window.addEventListener("resize", () => {
+    isDesktop.value = window.innerWidth >= 1024;
+  })
+
+  // isDesktop.value = window.innerWidth >= 1024;
 
   const isMobile = window.innerWidth < 1024;
   gsap.from(sliderRef.value, {
@@ -129,6 +158,12 @@ onMounted(async () => {
     stagger: 0.2,
   });
 });
+
+onUnmounted(() => {
+  window.removeEventListener("resize", () => {
+    isDesktop.value = window.innerWidth >= 1024;
+  })
+})
 </script>
 
 <style lang="scss">
@@ -261,6 +296,7 @@ onMounted(async () => {
       font-size: clamp(1.875rem, 3vw, 2.5rem);
       font-weight: 700;
       font-family: "Libre Baskerville", sans-serif;
+      margin: 0 auto;
       white-space: nowrap;
       font-style: normal;
       line-height: 150%;
@@ -285,7 +321,7 @@ onMounted(async () => {
     p {
       font-size: 1.25rem;
       font-weight: 400;
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: "Josefin Sans", sans-serif;
 
       font-style: normal;
       line-height: 150%;
@@ -310,7 +346,7 @@ onMounted(async () => {
       align-items: center;
       font-family: "Libre Baskerville", sans-serif;
       font-weight: 700;
-      // background: rgb(253, 130, 43);
+      margin: 0 auto;
       background: #f7ac0b;
       border-radius: 20px;
       color: white;

@@ -69,6 +69,8 @@ const bg = ref(null);
 const text1 = ref(null);
 const text2 = ref(null);
 const text3 = ref(null);
+const text4 = ref(null);
+const text5 = ref(null);
 
 let ticking = false;
 
@@ -113,7 +115,7 @@ onMounted(async () => {
   //   },
   // });
 
-  const texts = [text1.value, text2.value, text3.value];
+  const texts = [text1.value, text2.value, text3.value, text4.value, text5.value];
 
   gsap.set(texts, {
     opacity: 0,
