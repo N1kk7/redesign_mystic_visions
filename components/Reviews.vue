@@ -11,7 +11,7 @@
             mousewheel
             keyboard
             :autoplay="{
-              delay: 500,
+              delay: 12000,
               disableOnInteraction: false,
               pauseOnMouseEnter: false
             }"
